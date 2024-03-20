@@ -1,0 +1,73 @@
+CREATE SCHEMA IF NOT EXISTS library_scanner_testing;
+USE library_scanner_testing;
+CREATE TABLE IF NOT EXISTS visitors(
+                                    visitor_roll_no INT NOT NULL,
+                                    visitor_seat_number VARCHAR(20) NOT NULL,
+                                    visitor_name VARCHAR(30) NOT NULL,
+                                    visitor_stream VARCHAR(20) NOT NULL,
+                                    visitor_class VARCHAR(20) NOT NULL,
+                                    visitor_div CHAR NOT NULL,
+                                    visitor_library_card_valid_upto VARCHAR(20) NOT NULL,
+                                    visit_date DATE NOT NULL,
+                                    visit_time TIME NOT NULL,
+                                    visit_status VARCHAR(10) NOT NULL,
+                                    time_spent VARCHAR(30) DEFAULT "0:0:0"
+                                   );
+SELECT * FROM visitors;
+-- DROP TABLE IF EXISTS visitors;
+CREATE TABLE IF NOT EXISTS students (
+					                 student_barcode VARCHAR(20) PRIMARY KEY,
+                                     student_roll_number INT NOT NULL,
+                                     student_seat_number VARCHAR(20) NOT NULL,
+                                     student_name VARCHAR(50) NOT NULL,
+                                     student_stream VARCHAR(20) NOT NULL,   
+                                     student_class VARCHAR(20) NOT NULL,
+                                     student_div CHAR NOT NULL,
+                                     student_library_card_valid_upto VARCHAR(20) NOT NULL
+									);
+
+INSERT INTO students VALUES (123456789,20,"10029090","Pinky","Science","FYJC",'A',"APRIL 2025"),
+						    (234567891,19,"10039090","Supresh","Science","FYJC",'A',"APRIL 2025"),
+                            (345678912,45,"10049090","Vijay","Science","SYJC",'B',"APRIL 2025"),
+                            (456789123,5,"10059090","Minal","Commerce","FYJC",'A',"APRIL 2025"),
+                            (567891234,7,"10069090","Machindra","Commerce","FYJC",'B',"APRIL 2025"),
+                            (678912345,63,"10079090","Govind","Commerce","SYJC",'A',"APRIL 2025"),
+                            (789123456,40,"10089090","Sahil","Arts","FYJC",'A',"APRIL 2025"),
+                            (891234567,23,"10099090","Manish","Arts","FYJC",'A',"APRIL 2025"),
+                            (912345678,29,"10028080","Sanchit","Diploma","Mechanical",'A',"APRIL 2025"),
+                            (123456780,31,"10038080","Samruddhi","Diploma","Mechanical",'A',"APRIL 2025"),
+                            (147258369,41,"10048080","Samarth","Diploma","Mechanical",'B',"APRIL 2025"),
+                            (472583691,51,"10058080","Swapnil","Diploma","Mechanical",'C',"APRIL 2025"),
+                            (725836914,30,"10068080","Anjali","Diploma","Mechanical",'A',"APRIL 2025"),
+                            (258369147,50,"10078080","Kiran","Diploma","Electrical",'A',"APRIL 2025"),
+                            (583691472,13,"10088080","Gauri","Diploma","Electrical",'A',"APRIL 2025"),
+                            (836914725,11,"10098080","Nidhi","Diploma","Electronic",'B',"APRIL 2025"),
+                            (369147258,18,"10027070","Bhumi","Diploma","Electronic",'A',"APRIL 2025"),
+                            (691472583,9,"10037070","Shreya","Diploma","Electronic",'B',"APRIL 2025"),
+                            ("NMFK110852",1,"22FMS021","AGARWAL AKRITI SANDEEP","BMS","FY",'A',"APRIL 2025"),
+                            ("NMFK110958",1,"22FIT022","AMBEKAR NEEL BABAN","BSC IT","FY",'A',"APRIL 2025"),
+                            ("NMFK111131",1,"22FAF021","BHAGAT VRAJ CHETAN","BAF","FY",'A',"APRIL 2025"),
+                            ("NMFK111184",1,"22FCS021","APHALE NIKHIL AJAY","BSC CS","FY",'A',"APRIL 2025"),
+                            ("NMFK111510",1,"22FMM021","ACHARAYA SAHIL MANIRAM","BMMC","FY",'A',"APRIL 2025");
+                            
+SELECT * FROM students;
+-- DROP TABLE students;
+-- SELECT student_stream,student_class, COUNT(student_class) FROM students GROUP BY student_stream, student_class WITH ROLLUP;
+-- SELECT visitor_stream, visitor_class, COUNT(visitor_class) FROM visitors GROUP BY visitor_stream, visitor_class WITH ROLLUP;
+
+-- UPDATE Visitors SET visit_date = "2022-10-16" WHERE visitor_id =106 AND visit_status ="come";
+INSERT INTO Visitors VALUES(108,"Sanchit","Diploma","Mechanical","2022-10-18","17:27:49","come","0:0:0");
+
+
+-- DROP TABLE students;
+-- SELECT student_stream,student_class, COUNT(student_class) FROM students GROUP BY student_stream, student_class WITH ROLLUP;
+-- SELECT visitor_stream, visitor_class, COUNT(visitor_class) FROM visitors GROUP BY visitor_stream, visitor_class WITH ROLLUP;
+
+-- UPDATE Visitors SET visit_date = "2022-10-16" WHERE visitor_id =106 AND visit_status ="come";
+INSERT INTO Visitors VALUES(1,"22FCS021","APHALE NIKHIL AJAY","BSC CS","FY",'A',"APRIL 2025","2022-11-14","20:55:12","come","0:0:0");
+INSERT INTO Visitors VALUES(1,"22FCS021","APHALE NIKHIL AJAY","BSC CS","FY",'A',"APRIL 2025","2022-11-14","21:11:16","gone","0:16:3");
+select * from visitors;
+drop table visitors;
+-- SELECT visit_date, visitor_stream, visitor_class, COUNT(visitor_class) FROM visitors GROUP BY visit_date,visitor_stream, visitor_class;
+
+

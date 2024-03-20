@@ -1,0 +1,10 @@
+CREATE SCHEMA IF NOT EXISTS footfall_count_system;
+USE footfall_count_system;
+
+CREATE TABLE IF NOT EXISTS administrator (
+					                 administrator_name VARCHAR(20) PRIMARY KEY,   
+                                     administrator_password VARCHAR(20) NOT NULL
+									);
+INSERT INTO administrator VALUES("nmfc_official","nmfc2023");
+-- DROP TABLE administrator;
+SELECT * FROM administrator;
